@@ -9,6 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Check if is the main branch
+        if: ${{env.BRANCH_NAME}} != 'main'
         run: |
           echo 'Name of the branch is' ${{env.BRANCH_NAME}}
 
