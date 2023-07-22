@@ -9,12 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Check if is the main branch
-        run: |
-        if [['main' == 'main']]; then
-          echo 'Branch is main!'
-        else
-          echo 'Brach is not main!'
-        fi
+        if: ${{env.BRANCH == 'main'}}
 
       - name: Deploy
         run: |
