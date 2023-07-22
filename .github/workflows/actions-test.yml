@@ -9,6 +9,6 @@ jobs:
       - name: Check if is the main branch
         run: |
           echo running on branch ${GITHUB_REF##*/}
-      -name: Deploy
+      - name: Deploy
         run: |
           echo Deploy!!!
