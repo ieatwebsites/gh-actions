@@ -2,7 +2,7 @@ name: Check Branch Name
 on: [push]
 
 jobs:
-  Branch Name:
+  branch_name:
     if: github.ref_name == 'main'
     runs-on: ubuntu-latest
     steps:
@@ -10,3 +10,8 @@ jobs:
       - name: Check the name of the branch
         run: |
           echo 'Name of the branch is' ${{github.ref_name}}
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploying to Prod
+        run: echo 'Deploying...'
