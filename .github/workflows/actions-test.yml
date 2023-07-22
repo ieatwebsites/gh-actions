@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Check the name of the branch
+      - name: Branch Name
         run: |
-          echo 'Name of the branch is' ${{github.ref_name}}
+          echo 'The name of the branch is' ${{github.ref_name}}
   deploy:
     needs: branch_name
     runs-on: ubuntu-latest
