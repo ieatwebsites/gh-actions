@@ -3,10 +3,10 @@ on: [push]
 jobs:
   build:
     env:
-      BRANCH: ${GITHUB_REF##*/}
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
     name: Check Branch Name
     runs-on: ubuntu-latest
-    if: ${{GITHUB_REF##*/}} != 'main'
+    if: ${github.head_ref} != 'main'
     steps:
       - uses: actions/checkout@v3
       - name: Check if is the main branch
