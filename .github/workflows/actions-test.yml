@@ -6,7 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Run a multi-line script
+      - name: Check if is the main branch
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo running on branch ${GITHUB_REF##*/}
+      -name: Deploy
+        run: |
+          echo Deploy!!!
