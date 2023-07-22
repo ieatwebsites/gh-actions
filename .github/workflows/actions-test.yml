@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Check if is the main branch
         run: |
-        if [[${{env.BRANCH}} == 'main']]; then
+        if [['main' == 'main']]; then
           echo 'Branch is main!'
         else
           echo 'Brach is not main!'
