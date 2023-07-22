@@ -1,0 +1,12 @@
+on: [push]
+
+jobs:
+  build:
+    name: Check Branch Name
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
