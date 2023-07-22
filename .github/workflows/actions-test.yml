@@ -5,8 +5,8 @@ jobs:
     name: Check Branch Name
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Check if is the main branch
-        uses: actions/checkout@v3
         if: ${GITHUB_REF##*/} == 'main'
         run: |
           echo running on branch ${GITHUB_REF##*/}
