@@ -6,7 +6,7 @@ jobs:
       BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
     name: Check Branch Name
     runs-on: ubuntu-latest
-    if: ${github.head_ref} != 'main'
+    if: ${env.BRANCH_NAME} != 'main'
     steps:
       - uses: actions/checkout@v3
       - name: Check if is the main branch
