@@ -7,10 +7,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Check if is the main branch
-        if: ${GITHUB_REF##*/} == 'main'
+        if: ${{ GITHUB_REF##*/ == 'main' }}
         run: |
           echo running on branch ${GITHUB_REF##*/}
       - name: Deploy
-        if: ${GITHUB_REF##*/} !== 'main'
+        if: ${{ GITHUB_REF##*/ == 'main' }}
         run: |
           echo Deploy!!!
