@@ -6,14 +6,12 @@ jobs:
       BRANCH: ${GITHUB_REF##*/}
     name: Check Branch Name
     runs-on: ubuntu-latest
+    if: ${{env.BRANCH}} != 'main'
     steps:
       - uses: actions/checkout@v3
       - name: Check if is the main branch
-        if: ${{env.BRANCH}} != 'main'
         run: |
           echo 'Name of the branch is' ${{env.BRANCH}}
-          echo '::error:: This is the main branch'
-          exit 1
 
       - name: Deploy
         run: |
