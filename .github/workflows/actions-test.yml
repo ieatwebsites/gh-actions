@@ -9,9 +9,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Check if is the main branch
-        if: [[$BRANCH == 'main']]
-        run: |
-          echo running on branch $BRANCH
+        if [[$BRANCH == 'main']]; then
+          echo 'Branch is main!'
+        else
+          echo 'Brach is not main!'
+        fi
+        
       - name: Deploy
         run: |
           echo Deploy!!!
