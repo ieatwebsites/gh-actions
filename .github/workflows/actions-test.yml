@@ -2,15 +2,16 @@ on: [push]
 
 jobs:
   build:
+    env:
+      BRANCH: ${GITHUB_REF##*/}
     name: Check Branch Name
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Check if is the main branch
-        if: ${{ GITHUB_REF##*/ == 'main' }}
+        if: [[$BRANCH == 'main']]
         run: |
-          echo running on branch ${GITHUB_REF##*/}
+          echo running on branch $BRANCH
       - name: Deploy
-        if: ${{ GITHUB_REF##*/ == 'main' }}
         run: |
           echo Deploy!!!
