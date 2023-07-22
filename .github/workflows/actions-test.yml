@@ -10,7 +10,9 @@ jobs:
       - uses: actions/checkout@v3
       - name: Check if is the main branch
         if: ${{env.BRANCH}} == 'main'
-        run: exit 1
+        run: |
+          echo 'This is the main branch'
+          exit 1
 
       - name: Deploy
         run: |
