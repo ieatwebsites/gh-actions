@@ -1,14 +1,15 @@
+name: Check Branch Name
 on: [push]
 
 jobs:
   build:
-    name: Check Branch Name
+    if: ${{ github.ref_name }} != 'main'
     runs-on: ubuntu-latest
     env:
       BRANCH_NAME: ${{ github.ref_name }}
     steps:
       - uses: actions/checkout@v3
-      - name: Check if is the main branch
+      - name: Check the name of the branch
         if: ${{env.BRANCH_NAME}} != 'main'
         run: |
           echo 'Name of the branch is' ${{env.BRANCH_NAME}}
