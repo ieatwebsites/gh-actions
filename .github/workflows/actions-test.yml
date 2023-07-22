@@ -2,16 +2,16 @@ on: [push]
 
 jobs:
   build:
-    env:
-      BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
     name: Check Branch Name
     runs-on: ubuntu-latest
-    if: ${env.BRANCH_NAME} != 'main'
+    eviroment:
+      BRANCH_NAME: ${{ github.ref_name }}
     steps:
       - uses: actions/checkout@v3
+      - name: Get Branch name
       - name: Check if is the main branch
         run: |
-          echo 'Name of the branch is' ${{env.BRANCH}}
+          echo 'Name of the branch is' ${{env.BRANCH_NAME}}
 
       - name: Deploy
         run: |
