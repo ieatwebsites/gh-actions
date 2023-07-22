@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   build:
-    if: ${{ github.ref_name }} != 'main'
+    if: github.ref_name != 'main'
     runs-on: ubuntu-latest
     env:
       BRANCH_NAME: ${{ github.ref_name }}
