@@ -12,7 +12,7 @@ jobs:
         if: ${{env.BRANCH}} != 'main'
         run: |
           echo 'Name of the branch is' ${{env.BRANCH}}
-          echo '::error This is the main branch'
+          echo '::error:: This is the main branch'
           exit 1
 
       - name: Deploy
